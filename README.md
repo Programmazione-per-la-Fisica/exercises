@@ -40,4 +40,4 @@ Per mantenere una coerenza nel codice e nello stile, segui le seguenti linee gui
 - Non includere nella repository file di build o configurazioni specifiche del tuo ambiente di lavoro. Aggiorna il [.gitignore](.gitignore) se necessario;
 - In caso di modifiche a soluzioni già presenti, scrivi messaggi di *commit* dettagliati.
 
-Se vuoi contribuire, ma non sai da dove iniziare, controlla le scheda [Issues](https://github.com/Programmazione-per-la-Fisica/exercises/issues) e [Projects](https://github.com/Programmazione-per-la-Fisica/exercises/projects) sul GitHub della repository.
+Se vuoi contribuire, ma non sai da dove iniziare, controlla la scheda [Issues](https://github.com/Programmazione-per-la-Fisica/exercises/issues) sul GitHub della repository.
