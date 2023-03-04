@@ -1,2 +1,2 @@
 Implementa una classe `Person` che salva il nome e il cognome di un individuo come dati membri. Scrivi un costruttore che prende due parametri, i getter e i setter. Infine scrivi un breve `main()` per testare la classe, creando un'istanza sulla stack.  
-Per la classe `Person` implementata nell'esercizio precendete, e' necessario implementare esplicitamente un copy constructor? Nel caso in cui cio' non sia necessario, qual e' il comportamento del costruttore fornito in automatico dal compilatore?
+Per questa classe e' necessario implementare esplicitamente un copy constructor? Nel caso in cui cio' non sia necessario, qual e' il comportamento del costruttore fornito in automatico dal compilatore?
