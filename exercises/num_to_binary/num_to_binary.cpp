@@ -1,14 +1,14 @@
-#include <iostream>
-#include <cassert>
-#include <string>
 #include <algorithm>
+#include <cassert>
+#include <iostream>
+#include <string>
 
 std::string toBinary(int num) {
   std::string binaryNum = "";
 
   while (num != 0) {
-	binaryNum += std::to_string(num % 2);
-	num /= 2;
+    binaryNum += std::to_string(num % 2);
+    num /= 2;
   }
   std::reverse(binaryNum.begin(), binaryNum.end());
   return binaryNum;
