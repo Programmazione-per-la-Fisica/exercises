@@ -1,9 +1,22 @@
 #include <cassert>
 #include <iostream>
 
+int gcd(int a, int b) {
+  int t{};
+
+  while (b != 0) {
+    t = b;
+    b = a % b;
+    a = t;
+  }
+
+  return a;
+}
+
 int lcm(int a, int b) {
-  int lcm;
-  for (int i{1}; i <= a * b; ++i) {
+  int lcm{};
+
+  for (int i{1}; i <= a * b / gcd(a, b); ++i) {
     if (i % a == 0 && i % b == 0) {
       lcm = i;
       break;
@@ -11,18 +24,6 @@ int lcm(int a, int b) {
   }
 
   return lcm;
-}
-
-int gcd(int a, int b) {
-  while (a != b) {
-    if (a > b) {
-      a = a - b;
-    } else {
-      b = b - a;
-    }
-  }
-
-  return a;
 }
 
 int main() {
