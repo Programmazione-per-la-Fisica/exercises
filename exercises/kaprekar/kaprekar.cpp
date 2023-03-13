@@ -5,21 +5,23 @@
 #include <string>
 
 bool verifyKaprekar(int num) {
-  short steps{0};
-  int difference{0};
-  while (1) {
+  short steps{};
+  int difference{};
+
+  while (true) {
     ++steps;
 
+	// Create two strings and initialize them to the number converted to a string
     std::string ascending{std::to_string(num)};
     std::string descending{ascending};
+	// Then you sort the two strings, one in ascending and the other in descending order
     std::sort(ascending.begin(), ascending.end());
-    std::sort(descending.begin(), descending.end(), std::greater<int>());
+    std::sort(descending.begin(), descending.end(), std::greater());
 
+	// Convert the two resulting numbers to integers and calculate their difference (in abs value)
     int num1{std::stoi(ascending)};
     int num2{std::stoi(descending)};
-
     difference = std::abs(num2 - num1);
-    std::cout << difference << std::endl;
     if (difference == 6174) {
       break;
     }
