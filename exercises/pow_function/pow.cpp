@@ -2,6 +2,9 @@
 #include <iostream>
 
 int pow(int base, int exponent) {
+  // Make sure that the exponent is non negative
+  assert(exponent >= 0);
+
   int result{1};
   for (int i{}; i < exponent; ++i) {
     result *= base;
