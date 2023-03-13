@@ -3,7 +3,7 @@
 #include <iostream>
 
 bool isPrime(int num) {
-  if (num <= 0) {
+  if (num <= 1) {
     return false;
   }
 
