@@ -7,7 +7,7 @@ std::string toBinary(int num) {
   std::string binaryNum = "";
 
   while (num != 0) {
-    binaryNum += std::to_string(num % 2);
+    num % 2 == 0 ? binaryNum += '0' : binaryNum += '1';
     num /= 2;
   }
   std::reverse(binaryNum.begin(), binaryNum.end());
