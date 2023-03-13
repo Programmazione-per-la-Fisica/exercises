@@ -2,6 +2,9 @@
 #include <cmath>
 #include <iostream>
 
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "../../doctest.h"
+
 bool isPrime(int num) {
   if (num <= 1) {
     return false;
@@ -16,33 +19,19 @@ bool isPrime(int num) {
   return true;
 }
 
-int main() {
-  assert(isPrime(0) == false);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(1) == true);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(2) == true);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(3) == true);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(5) == true);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(7) == true);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(11) == true);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(4) == false);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(6) == false);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(8) == false);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(10) == false);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(40) == false);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(31) == true);
-  std::cout << "TEST PASSED\n";
-  assert(isPrime(-5) == false);
-  std::cout << "TEST PASSED\n";
+TEST_CASE("Testing the isPrime function") {
+  CHECK(isPrime(0) == false);
+  CHECK(isPrime(1) == false);
+  CHECK(isPrime(2) == true);
+  CHECK(isPrime(3) == true);
+  CHECK(isPrime(5) == true);
+  CHECK(isPrime(7) == true);
+  CHECK(isPrime(11) == true);
+  CHECK(isPrime(4) == false);
+  CHECK(isPrime(6) == false);
+  CHECK(isPrime(8) == false);
+  CHECK(isPrime(10) == false);
+  CHECK(isPrime(40) == false);
+  CHECK(isPrime(31) == true);
+  CHECK(isPrime(-5) == false);
 }

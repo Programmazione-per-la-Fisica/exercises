@@ -4,6 +4,9 @@
 #include <iterator>
 #include <string>
 
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "../../doctest.h"
+
 bool verifyKaprekar(int num) {
   short steps{};
   int difference{};
@@ -31,13 +34,13 @@ bool verifyKaprekar(int num) {
   return steps <= 7;
 }
 
-int main() {
-  assert(verifyKaprekar(4925));
-  assert(verifyKaprekar(1029));
-  assert(verifyKaprekar(4956));
-  assert(verifyKaprekar(8573));
-  assert(verifyKaprekar(3921));
-  assert(verifyKaprekar(9483));
-  assert(verifyKaprekar(8937));
-  assert(verifyKaprekar(7893));
+TEST_CASE("Testing the algorithm verifying the kaprekar property") {
+  CHECK(verifyKaprekar(4925));
+  CHECK(verifyKaprekar(1029));
+  CHECK(verifyKaprekar(4956));
+  CHECK(verifyKaprekar(8573));
+  CHECK(verifyKaprekar(3921));
+  CHECK(verifyKaprekar(9483));
+  CHECK(verifyKaprekar(8937));
+  CHECK(verifyKaprekar(7893));
 }

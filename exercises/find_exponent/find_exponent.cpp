@@ -4,6 +4,9 @@
 #include <iostream>
 #include <string>
 
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "../../doctest.h"
+
 int findExponent(int num) {
   std::string sequence{std::to_string(num)};
   int length = sequence.size();
@@ -25,12 +28,11 @@ int findExponent(int num) {
   return exponent;
 }
 
-int main() {
-  // A bit of testing
-  assert(findExponent(8) == 3);
-  assert(findExponent(10) == 10);
-  assert(findExponent(40) == 12);
-  assert(findExponent(25) == 8);
-  assert(findExponent(6) == 6);
-  assert(findExponent(1) == 0);
+TEST_CASE("Testing the findExponent function") {
+  CHECK(findExponent(8) == 3);
+  CHECK(findExponent(10) == 10);
+  CHECK(findExponent(40) == 12);
+  CHECK(findExponent(25) == 8);
+  CHECK(findExponent(6) == 6);
+  CHECK(findExponent(1) == 0);
 }
