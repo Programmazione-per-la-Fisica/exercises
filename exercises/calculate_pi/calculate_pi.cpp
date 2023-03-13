@@ -16,5 +16,5 @@ int main() {
                "be divided: ";
   int n;
   std::cin >> n;
-  std::cout << calculatePi(n) << std::endl;
+  std::cout << calculatePi(n) << '\n';
 }
