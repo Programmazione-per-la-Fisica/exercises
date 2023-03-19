@@ -5,13 +5,14 @@
 
 int towerHanoi(int nDisks) {
   if (nDisks == 1) {
-	return 1;
+    return 1;
   } else {
-	return 1 + 2*towerHanoi(nDisks - 1);
+    return 1 + 2 * towerHanoi(nDisks - 1);
   }
 }
 
-TEST_CASE("Testing the function calculating the number of moves in the hanoi tower") {
+TEST_CASE(
+    "Testing the function calculating the number of moves in the hanoi tower") {
   CHECK(towerHanoi(1) == 1);
   CHECK(towerHanoi(2) == 3);
   CHECK(towerHanoi(3) == 7);
