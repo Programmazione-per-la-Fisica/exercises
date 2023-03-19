@@ -3,33 +3,27 @@
 #include <iostream>
 #include <string>
 
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "../../doctest.h"
+
 std::string toBinary(int num) {
   std::string binaryNum = "";
 
   while (num != 0) {
-    binaryNum += std::to_string(num % 2);
+    num % 2 == 0 ? binaryNum += '0' : binaryNum += '1';
     num /= 2;
   }
   std::reverse(binaryNum.begin(), binaryNum.end());
   return binaryNum;
 }
 
-int main() {
-  // Now we test the function for some numbers
-  assert(toBinary(2) == "10");
-  std::cout << "TEST PASSED\n";
-  assert(toBinary(3) == "11");
-  std::cout << "TEST PASSED\n";
-  assert(toBinary(4) == "100");
-  std::cout << "TEST PASSED\n";
-  assert(toBinary(5) == "101");
-  std::cout << "TEST PASSED\n";
-  assert(toBinary(10) == "1010");
-  std::cout << "TEST PASSED\n";
-  assert(toBinary(40) == "101000");
-  std::cout << "TEST PASSED\n";
-  assert(toBinary(100) == "1100100");
-  std::cout << "TEST PASSED\n";
-  assert(toBinary(101) == "1100101");
-  std::cout << "TEST PASSED\n";
+TEST_CASE("Testing the conversion of integers to binary notation") {
+  CHECK(toBinary(2) == "10");
+  CHECK(toBinary(3) == "11");
+  CHECK(toBinary(4) == "100");
+  CHECK(toBinary(5) == "101");
+  CHECK(toBinary(10) == "1010");
+  CHECK(toBinary(40) == "101000");
+  CHECK(toBinary(100) == "1100100");
+  CHECK(toBinary(101) == "1100101");
 }
