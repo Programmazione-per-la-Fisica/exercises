@@ -3,7 +3,7 @@
 #include <random>
 #include <vector>
 
-std::vector<double> clm(int N, int M) {
+std::vector<double> centralLimitTheorem(int N, int M) {
   std::mt19937 gen;
   std::uniform_real_distribution<double> dis{0., 1.};
 
@@ -20,7 +20,7 @@ std::vector<double> clm(int N, int M) {
 }
 
 int main() {
-  std::vector<double> v{clm(10000, 1000)};
+  std::vector<double> v{centralLimitTheorem(10000, 1000)};
   for (auto const& x : v) {
     std::cout << x << '\n';
   }
