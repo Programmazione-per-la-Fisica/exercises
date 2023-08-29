@@ -8,9 +8,9 @@
 #include "../../doctest.h"
 
 int letterDistance(char first, char second) {
-  std::vector<char> alphabet{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
-                             'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
-                             's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
+  const std::vector<char> alphabet{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i',
+                                   'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r',
+                                   's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
 
   auto first_iterator{std::find(alphabet.begin(), alphabet.end(), first)};
   auto second_iterator{std::find(alphabet.begin(), alphabet.end(), second)};
