@@ -5,7 +5,7 @@
 #include <vector>
 
 std::vector<double> centralLimitTheorem(int N, int M) {
-  std::mt19937 gen;
+  std::default_random_engine gen;
   std::uniform_real_distribution<double> dis{0., 1.};
 
   std::vector<double> values(N);
