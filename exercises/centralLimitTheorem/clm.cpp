@@ -20,7 +20,7 @@ std::vector<double> centralLimitTheorem(int N, int M) {
 }
 
 int main() {
-  std::vector<double> v{centralLimitTheorem(10000, 1000)};
+  const std::vector<double> v{centralLimitTheorem(10000, 1000)};
   for (auto const& x : v) {
     std::cout << x << '\n';
   }

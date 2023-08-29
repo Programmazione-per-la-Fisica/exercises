@@ -1,6 +1,6 @@
 #
 
-g++ ../clm.cpp -o clm
+g++ -Wall -Wextra ../clm.cpp -o clm
 ./clm > data.csv
 python3 plot.py
 rm data.csv
