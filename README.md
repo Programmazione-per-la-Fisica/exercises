@@ -41,3 +41,5 @@ Per mantenere una coerenza nel codice e nello stile, segui le seguenti linee gui
 - In caso di modifiche a soluzioni già presenti, scrivi messaggi di *commit* dettagliati.
 
 Se vuoi contribuire, ma non sai da dove iniziare, controlla la scheda [Issues](https://github.com/Programmazione-per-la-Fisica/exercises/issues) sul GitHub della repository.
+
+prova
