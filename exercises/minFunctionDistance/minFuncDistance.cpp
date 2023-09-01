@@ -10,7 +10,7 @@ using func_t = std::function<double(double)>;
 
 double minFunctionDistance(func_t f1, func_t f2) {
   std::vector<double> v(101);
-  double n{0};
+  double n{0.};
   std::generate(v.begin()+1, v.end(), [&n]() { return n += 0.1; });
 
   double distance{std::numeric_limits<double>::max()};
