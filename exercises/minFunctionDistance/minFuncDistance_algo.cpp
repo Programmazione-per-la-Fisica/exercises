@@ -6,9 +6,8 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../../doctest.h"
 
-using func_t = std::function<double(double)>;
-
-double minFunctionDistance_1(func_t f1, func_t f2) {
+template <typename F1, typename F2>
+double minFunctionDistance_1(F1 f1, F2 f2) {
   std::vector<double> v(101);
   std::vector<double> distances(101);
 
@@ -23,7 +22,8 @@ double minFunctionDistance_1(func_t f1, func_t f2) {
   return *std::min_element(distances.begin(), distances.end());
 }
 
-double minFunctionDistance_2(func_t f1, func_t f2) {
+template <typename F1, typename F2>
+double minFunctionDistance_2(F1 f1, F2 f2) {
   std::vector<double> v(101);
   std::vector<double> distances(101);
 
