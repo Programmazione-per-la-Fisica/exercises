@@ -7,15 +7,15 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../../doctest.h"
 
-std::string rmSpecialCharacters(std::string&& result) {
+std::string rmSpecialCharacters(std::string result) {
   const std::vector<char> specialCharacters = {'.', '!', '@', '#', '$', '%',
                                                '^', '&', '*', '(', ')'};
 
   result.erase(std::remove_if(result.begin(), result.end(),
-                              [&specialCharacters](char c) {
-                                return (std::find(specialCharacters.begin(),
-                                                  specialCharacters.end(), c) !=
-                                        specialCharacters.end());
+                              [&](char c) {
+                                return std::find(specialCharacters.begin(),
+                                                 specialCharacters.end(),
+                                                 c) != specialCharacters.end();
                               }),
                result.end());
   return result;
