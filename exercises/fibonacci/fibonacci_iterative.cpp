@@ -9,15 +9,14 @@ int fibonacci(int n) {
 
   int previous_value{1};
   int current_value{1};
-  int result{1};
 
   for (int i{2}; i < n; ++i) {
-    result = current_value + previous_value;
+    const int next_value{current_value + previous_value};
     previous_value = current_value;
-    current_value = result;
+    current_value = next_value;
   }
 
-  return result;
+  return current_value;
 }
 
 TEST_CASE(
