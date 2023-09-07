@@ -6,12 +6,12 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "../../doctest.h"
 
-using func_t = std::function<double(double)>;
-
-double minFunctionDistance(func_t f1, func_t f2) {
+template <typename F1, typename F2>
+double minFunctionDistance(F1 f1, F2 f2) {
   std::vector<double> v(101);
-  double n{0};
-  std::generate(v.begin()+1, v.end(), [&n]() { return n += 0.1; });
+  const double delta{0.125};
+  std::generate(v.begin() + 1, v.end(),
+                [n = 0., delta]() mutable { return n += delta; });
 
   double distance{std::numeric_limits<double>::max()};
   for (auto const& x : v) {
@@ -27,9 +27,18 @@ double minFunctionDistance(func_t f1, func_t f2) {
 
 TEST_CASE("Testing the function") {
   CHECK(doctest::Approx(minFunctionDistance([](double x) { return x; },
-                            [](double x) { return x * x; })).epsilon(0.01) == 0.);
+                                            [](double x) { return x * x; }))
+            .epsilon(0.01) == 0.);
   CHECK(doctest::Approx(minFunctionDistance([](double x) { return x + 3; },
-                            [](double x) { return x + 4; })).epsilon(0.01) == 1.);
-  CHECK(doctest::Approx(minFunctionDistance([](double x) { return 2*x + 1; },
-                            [](double x) { return x; })).epsilon(0.01) == 1.);
+                                            [](double x) { return x + 4; }))
+            .epsilon(0.01) == 1.);
+  CHECK(doctest::Approx(minFunctionDistance([](double x) { return 2 * x + 1; },
+                                            [](double x) { return x; }))
+            .epsilon(0.01) == 1.);
+  CHECK(doctest::Approx(minFunctionDistance([](double x) { return 1.; },
+                                            [](double x) { return x; }))
+            .epsilon(0.01) == 0.);
+  CHECK(doctest::Approx(minFunctionDistance([](double x) { return x; },
+                                            [](double x) { return x; }))
+            .epsilon(0.01) == 0.);
 }
