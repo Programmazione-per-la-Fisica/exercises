@@ -1,6 +1,9 @@
 #include <cmath>
 #include <iostream>
 
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "../../doctest.h"
+
 double calculatePi(int n) {
   double dx = 1. / n;
 
@@ -11,10 +14,6 @@ double calculatePi(int n) {
   return result;
 }
 
-int main() {
-  std::cout << "Write the number of intervals in which the interval [0,1] will "
-               "be divided: ";
-  int n;
-  std::cin >> n;
-  std::cout << calculatePi(n) << '\n';
+TEST_CASE("Test that the function estimates the value of pi correctly") {
+  CHECK(doctest::Approx(calculatePi(100)).epsilon(0.0001) == M_PI);
 }
