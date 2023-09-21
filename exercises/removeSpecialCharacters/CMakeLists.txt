@@ -11,22 +11,8 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra -g")
 # Set the folder for the executable
 set(EXECUTABLE_OUTPUT_PATH ../)
 
-include(FetchContent)
-
-# Get doctest
-FetchContent_Declare(doctest
-  GIT_REPOSITORY https://github.com/doctest/doctest.git
-  GIT_TAG 7b9885133108ae301ddd16e2651320f54cafeba7
-)
-FetchContent_GetProperties(doctest)
-if(NOT doctest_POPULATED)
-  FetchContent_Populate(doctest)
-endif()
-
 # Compile
-add_executable(rmSpecialChars.out ./rmSpecialChars.cpp)
-target_include_directories(rmSpecialChars.out SYSTEM PRIVATE ${doctest_SOURCE_DIR}/doctest)
+add_executable(rmSpecialChars.out ./rmSpecialChars.cpp ../../doctest.h)
 add_test(NAME rmSpecialChars.out COMMAND rmSpecialChars.out)
-add_executable(rmSpecialChars_algo.out ./rmSpecialChars_algo.cpp)
-target_include_directories(rmSpecialChars_algo.out SYSTEM PRIVATE ${doctest_SOURCE_DIR}/doctest)
+add_executable(rmSpecialChars_algo.out ./rmSpecialChars_algo.cpp ../../doctest.h)
 add_test(NAME rmSpecialChars_algo.out COMMAND rmSpecialChars_algo.out)

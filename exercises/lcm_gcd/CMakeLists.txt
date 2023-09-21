@@ -11,19 +11,6 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra -g")
 # Set the folder for the executable
 set(EXECUTABLE_OUTPUT_PATH ../)
 
-include(FetchContent)
-
-# Get doctest
-FetchContent_Declare(doctest
-  GIT_REPOSITORY https://github.com/doctest/doctest.git
-  GIT_TAG 7b9885133108ae301ddd16e2651320f54cafeba7
-)
-FetchContent_GetProperties(doctest)
-if(NOT doctest_POPULATED)
-  FetchContent_Populate(doctest)
-endif()
-
 # Compile
-add_executable(lcm_gcd.out ./lcm_gcd.cpp)
-target_include_directories(lcm_gcd.out SYSTEM PRIVATE ${doctest_SOURCE_DIR}/doctest)
+add_executable(lcm_gcd.out ./lcm_gcd.cpp ../../doctest.h)
 add_test(NAME lcm_gcd.out COMMAND lcm_gcd.out)

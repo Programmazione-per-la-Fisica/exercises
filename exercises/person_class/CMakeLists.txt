@@ -11,7 +11,5 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra -g")
 # Set the folder for the executable
 set(EXECUTABLE_OUTPUT_PATH ../)
 
-include(FetchContent)
-
 # Compile
 add_executable(person_class.out ./person_class.cpp)

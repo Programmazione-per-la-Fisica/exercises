@@ -11,19 +11,6 @@ set(CMAKE_CXX_FLAGS "-Wall -Wextra -g")
 # Set the folder for the executable
 set(EXECUTABLE_OUTPUT_PATH ../)
 
-include(FetchContent)
-
-# Get doctest
-FetchContent_Declare(doctest
-  GIT_REPOSITORY https://github.com/doctest/doctest.git
-  GIT_TAG 7b9885133108ae301ddd16e2651320f54cafeba7
-)
-FetchContent_GetProperties(doctest)
-if(NOT doctest_POPULATED)
-  FetchContent_Populate(doctest)
-endif()
-
 # Compile
-add_executable(num_to_binary.out ./num_to_binary.cpp)
-target_include_directories(num_to_binary.out SYSTEM PRIVATE ${doctest_SOURCE_DIR}/doctest)
+add_executable(num_to_binary.out ./num_to_binary.cpp ../../doctest.h)
 add_test(NAME num_to_binary.out COMMAND num_to_binary.out)
