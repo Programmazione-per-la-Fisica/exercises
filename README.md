@@ -22,14 +22,14 @@ La repository è strutturata nel seguente modo:
 Ogni esercizio è contenuto in una directory separata e ha un proprio file README.md che contiene la consegna dell'esercizio e alcune indicazioni sulle soluzioni presenti.
 
 ## Come compilare gli esercizi
-# Usando `g++`
+### Usando `g++`
 I singoli file `.cpp` delle soluzioni possono essere compilati usando il compilatore `g++`.  
 Il comando da usare e':
 ```
 g++ -Wall nome_file.cpp
 ```
 Volendo si puo' rinominare l'eseguibile aggiungendo in coda al comando precedente la flag `-o nome_flag`. Di default gli eseguibili vengono chiamati `a.out`.
-# Usando `CMAKE`
+### Usando `CMAKE`
 Nella subdirectory di ogni esercizio e' presente un file `CMakeLists.txt`, che permette la compilazione della soluzione mediante CMAKE.  
 Per compilare con CMAKE esequire il comando:
 ```
