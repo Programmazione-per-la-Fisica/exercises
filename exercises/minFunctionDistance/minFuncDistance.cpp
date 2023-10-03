@@ -35,7 +35,7 @@ TEST_CASE("Testing the function") {
   CHECK(doctest::Approx(minFunctionDistance([](double x) { return 2 * x + 1; },
                                             [](double x) { return x; }))
             .epsilon(0.01) == 1.);
-  CHECK(doctest::Approx(minFunctionDistance([](double x) { return 1.; },
+  CHECK(doctest::Approx(minFunctionDistance([](double) { return 1.; },
                                             [](double x) { return x; }))
             .epsilon(0.01) == 0.);
   CHECK(doctest::Approx(minFunctionDistance([](double x) { return x; },

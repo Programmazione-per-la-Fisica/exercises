@@ -48,7 +48,7 @@ TEST_CASE("Testing the function 1") {
       doctest::Approx(minFunctionDistance_1([](double x) { return 2 * x + 1; },
                                             [](double x) { return x; }))
           .epsilon(0.01) == 1.);
-  CHECK(doctest::Approx(minFunctionDistance_1([](double x) { return 1.; },
+  CHECK(doctest::Approx(minFunctionDistance_1([](double) { return 1.; },
                                               [](double x) { return x; }))
             .epsilon(0.01) == 0.);
   CHECK(doctest::Approx(minFunctionDistance_1([](double x) { return x; },
@@ -67,7 +67,7 @@ TEST_CASE("Testing the function 2") {
       doctest::Approx(minFunctionDistance_2([](double x) { return 2 * x + 1; },
                                             [](double x) { return x; }))
           .epsilon(0.01) == 1.);
-  CHECK(doctest::Approx(minFunctionDistance_2([](double x) { return 1.; },
+  CHECK(doctest::Approx(minFunctionDistance_2([](double) { return 1.; },
                                               [](double x) { return x; }))
             .epsilon(0.01) == 0.);
   CHECK(doctest::Approx(minFunctionDistance_2([](double x) { return x; },
