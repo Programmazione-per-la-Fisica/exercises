@@ -7,7 +7,7 @@ Questa repository contiene una collezione di esercizi in C++ per il corso di Pro
 La repository è strutturata nel seguente modo:
 
 ```
-├──exercises
+├──problemi
 │   ├── esercizio_1
 │   │   ├── soluzione_1.cpp
 │   │   ├── soluzione_2.cpp
@@ -28,10 +28,10 @@ Il comando da usare e':
 ```
 g++ -Wall nome_file.cpp
 ```
-Volendo si puo' rinominare l'eseguibile aggiungendo in coda al comando precedente la flag `-o nome_flag`. Di default gli eseguibili vengono chiamati `a.out`.
+Volendo si può rinominare l'eseguibile aggiungendo in coda al comando precedente la flag `-o nome_flag`. Di default gli eseguibili vengono chiamati `a.out`.
 ### Usando `CMAKE`
 Nella subdirectory di ogni esercizio e' presente un file `CMakeLists.txt`, che permette la compilazione della soluzione mediante CMAKE.  
-Per compilare con CMAKE esequire il comando:
+Per compilare con CMAKE eseguire il comando:
 ```
 cmake -B build
 ```
