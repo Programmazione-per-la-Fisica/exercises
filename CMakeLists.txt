@@ -2,23 +2,20 @@ cmake_minimum_required(VERSION 3.16.0)
 
 project(PF_Exercises VERSION 1.0.0 LANGUAGES CXX)
 
-add_subdirectory(./exercises/isPrime/)
-add_subdirectory(./exercises/lcm_gcd/)
-add_subdirectory(./exercises/kaprekar/)
-add_subdirectory(./exercises/fibonacci/)
-add_subdirectory(./exercises/isPerfect/)
-add_subdirectory(./exercises/calculate_pi/)
-add_subdirectory(./exercises/person_class)
-add_subdirectory(./exercises/pow_function/)
-add_subdirectory(./exercises/towerOfHanoi/)
-add_subdirectory(./exercises/find_exponent/)
-add_subdirectory(./exercises/maxAdjProduct/)
-add_subdirectory(./exercises/num_to_binary/)
-add_subdirectory(./exercises/smallest_of_N/)
-add_subdirectory(./exercises/letterDistance/)
-add_subdirectory(./exercises/sum_of_N_cubes/)
-add_subdirectory(./exercises/recursive_count/)
-add_subdirectory(./exercises/centralLimitTheorem/)
-add_subdirectory(./exercises/minFunctionDistance/)
-add_subdirectory(./exercises/removeSpecialCharacters/)
-add_subdirectory(./exercises/templated_recursive_count/)
+# abilita il supporto per i test
+include(CTest)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+# Set the C++ standard
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+string(APPEND CMAKE_CXX_FLAGS " -Wall -Wextra -Wextra-semi -Wdouble-promotion -Wimplicit-fallthrough")
+string(APPEND CMAKE_CXX_FLAGS_DEBUG " -fsanitize=address,undefined -fno-omit-frame-pointer")
+string(APPEND CMAKE_EXE_LINKER_FLAGS_DEBUG " -fsanitize=address,undefined -fno-omit-frame-pointer")
+
+set(DOCTEST_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/doctest)
+
+add_subdirectory(problemi)

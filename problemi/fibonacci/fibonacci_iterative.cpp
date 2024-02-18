@@ -1,7 +1,7 @@
 #include <cassert>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../doctest.h"
+#include "doctest.h"
 
 int fibonacci(int n) {
   // n is the position in the Fibonacci sequence

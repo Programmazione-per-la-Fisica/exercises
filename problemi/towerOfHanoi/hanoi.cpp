@@ -1,14 +1,13 @@
+#include <cassert>
 #include <iostream>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../doctest.h"
+#include "doctest.h"
 
 int towerHanoi(int nDisks) {
-  if (nDisks == 1) {
-    return 1;
-  } else {
-    return 1 + 2 * towerHanoi(nDisks - 1);
-  }
+  assert(nDisks >= 1);
+
+  return nDisks == 1 ? 1 : 1 + 2 * towerHanoi(nDisks - 1);
 }
 
 TEST_CASE(

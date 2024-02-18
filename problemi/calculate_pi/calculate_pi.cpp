@@ -1,17 +1,19 @@
-#include <cmath>
+#include <cassert>
 #include <iostream>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../doctest.h"
+#include "doctest.h"
 
 double calculatePi(int n) {
-  double dx = 1. / n;
+  assert(n > 0);
 
+  auto const dx = 1. / n;
   double result = 0.;
-  for (int i{}; i < n; ++i) {
-    result += dx * 4. / (1 + std::pow(i * dx, 2));
+  for (int i{0}; i != n; ++i) {
+    auto const x = (i + .5) * dx;
+    result += 1. / (1 + x * x);
   }
-  return result;
+  return dx * 4. * result;
 }
 
 TEST_CASE("Test that the function estimates the value of pi correctly") {

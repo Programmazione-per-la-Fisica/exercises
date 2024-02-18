@@ -2,13 +2,12 @@
 #include <iostream>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../doctest.h"
+#include "doctest.h"
 
 int gcd(int a, int b) {
-  int t{};
 
   while (b != 0) {
-    t = b;
+    auto t = b;
     b = a % b;
     a = t;
   }
@@ -17,16 +16,8 @@ int gcd(int a, int b) {
 }
 
 int lcm(int a, int b) {
-  int lcm{};
 
-  for (int i{1}; i <= a * b / gcd(a, b); ++i) {
-    if (i % a == 0 && i % b == 0) {
-      lcm = i;
-      break;
-    }
-  }
-
-  return lcm;
+  return a / gcd(a, b) * b;
 }
 
 

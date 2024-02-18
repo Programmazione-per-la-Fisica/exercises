@@ -3,10 +3,14 @@
 #include <iostream>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../doctest.h"
+#include "doctest.h"
 
 bool isPrime(int num) {
-  if (num <= 1) {
+  if (num < 0) {
+    num = -num;
+  }
+
+  if (num == 0 || num == 1) {
     return false;
   }
 
@@ -33,5 +37,5 @@ TEST_CASE("Testing the isPrime function") {
   CHECK(isPrime(10) == false);
   CHECK(isPrime(40) == false);
   CHECK(isPrime(31) == true);
-  CHECK(isPrime(-5) == false);
+  CHECK(isPrime(-5) == true);
 }

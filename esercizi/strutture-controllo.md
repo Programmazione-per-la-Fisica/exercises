@@ -8,55 +8,65 @@ Cosa succede se l'`else` statement è formato esso stesso da un `if-else` statem
 
 ### 2. Scrivere un programma che, dati in input due numeri `a` e `b`, trovi la soluzione dell'equazione `ax + b = 0`.
 
-Il programma deve saper gestire soluzioni impossibili o indeterminate. 
+Il programma deve saper gestire soluzioni impossibili o indeterminate.
 
 ### 3. Qual è l'output dei seguenti programmi?
 
-```
-int i = 5;
-while(i > 0)
+```c++
+int i{5};
+while (i > 0)
 {
   std::cout << i << ' ';
   --i;
 }
 ```
+
 ---
-```
-int i = 5;
-while(--i > 0)
+
+```c++
+int i{5};
+while (--i > 0)
 {
   std::cout << i << ' ';
 }
 ```
+
 ---
-```
-int i = 5;
-while(i-- > 0)
+
+```c++
+int i{5};
+while (i-- > 0)
 {
   std::cout << i << ' ';
 }
 ```
----
+
 ### 4. Qual è l'output dei seguenti programmi?
-```
-for (int i = 0; i < 5; ++i){
-  std::cout << i <<' ';
+
+```c++
+for (int i{0}; i != 5; ++i) {
+  std::cout << i << ' ';
 }
 ```
+
 ---
-```
-for (int i = 5; i > 0; --i){
-  std::cout << i <<' ';
+
+```c++
+for (int i{5}; i > 0; --i) {
+  std::cout << i << ' ';
 }
 ```
+
 ---
-```
-for (int i = 0; i < 5; i+=2){
-  std::cout << i <<' ';
+
+```c++
+for (int i{0}; i < 5; i += 2){
+  std::cout << i << ' ';
 }
 ```
----
-### 5. Svolgi gli esercizi nelle slide 
-  * the smallest of three numbers
-  * the largest/smallest of N numbers
-  * accumulate 0.001
+
+### 5. Svolgi gli esercizi nelle slide
+
+* the smallest of three numbers
+* the largest/smallest of N numbers
+* accumulate 0.001

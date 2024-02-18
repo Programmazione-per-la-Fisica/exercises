@@ -4,7 +4,7 @@
 #include <vector>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../doctest.h"
+#include "doctest.h"
 
 template <typename F1, typename F2>
 double minFunctionDistance_1(F1 f1, F2 f2) {

@@ -1,21 +1,22 @@
 #include <numeric>
-#include <type_traits>
 #include <vector>
+#include <cassert>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../doctest.h"
+#include "doctest.h"
 
 bool isPerfect(int num) {
-  std::vector<int> factors;
+  assert(num > 0);
 
-  for (int i{1}; i < num; ++i) {
+  std::vector<int> factors{1};
+
+  for (int i{2}; i < num; ++i) {
     if (num % i == 0) {
       factors.push_back(i);
     }
   }
 
-  bool isPerf = std::accumulate(factors.begin(), factors.end(), 0) == num;
-  return isPerf;
+  return std::accumulate(factors.begin(), factors.end(), 0) == num;
 }
 
 TEST_CASE("Testing the isPerfect function") {

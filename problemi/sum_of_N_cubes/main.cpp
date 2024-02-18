@@ -1,22 +1,27 @@
+#include <cassert>
 #include <iostream>
 
 int pow(int base, int exp) {
-  // Should check if exp is positive and avoid overflows
+  assert(exp >= 0);
   int result{1};
-  for (int i = 0; i < exp; ++i) {
+  for (int i{0}; i != exp; ++i) {
     result *= base;
   }
   return result;
 }
 
 int main() {
-  int n{0};
-  int result{0};
-  // Should check if n is positive
-  std::cout << "Insert an integer: ";
+  std::cout << "Insert an integer >= 1: ";
+  int n;
   std::cin >> n;
-  for (int i = i; i < n+1; ++i) {
+  if (!(std::cin && n >= 1)) {
+    std::cerr << "Invalid argument\n";
+    return EXIT_FAILURE;
+  }
+
+  int result{1};
+  for (int i{2}; i <= n; ++i) {
     result += pow(i, 3);
   }
-  std::cout << "The sum of the first N cubes is " << result << '\n';
+  std::cout << "The sum of the first " << n << " cubes is " << result << '\n';
 }

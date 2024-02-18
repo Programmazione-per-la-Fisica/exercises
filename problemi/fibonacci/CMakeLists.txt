@@ -1,18 +1,6 @@
-cmake_minimum_required(VERSION 3.9.1)
-
-# Set the C++ standard
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-# Set the C++ flags
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -g")
-
-# Set the folder for the executable
-set(EXECUTABLE_OUTPUT_PATH ../)
-
-# Compile
-add_executable(fibonacci.out ./fibonacci.cpp ../../doctest.h)
+add_executable(fibonacci.out fibonacci.cpp)
+target_include_directories(fibonacci.out PRIVATE ${DOCTEST_INCLUDE_DIR})
 add_test(NAME fibonacci.out COMMAND fibonacci.out)
-add_executable(fibonacci_iterative.out ./fibonacci_iterative.cpp ../../doctest.h)
+add_executable(fibonacci_iterative.out fibonacci_iterative.cpp)
+target_include_directories(fibonacci_iterative.out PRIVATE ${DOCTEST_INCLUDE_DIR})
 add_test(NAME fibonacci_iterative.out COMMAND fibonacci_iterative.out)

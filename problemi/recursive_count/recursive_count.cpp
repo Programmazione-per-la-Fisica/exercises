@@ -5,7 +5,7 @@
 #include <vector>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../doctest.h"
+#include "doctest.h"
 
 int recursive_count(std::vector<int>::iterator first,
                     std::vector<int>::iterator last, int value,
@@ -24,7 +24,7 @@ int recursive_count(std::vector<int>::iterator first,
   }
 }
 
-TEST_CASE("Testing the isPrime function") {
+TEST_CASE("Testing recursive_count") {
   std::vector<int> v{1, 2, 4, 6, 7, 4, 3, 5, 6, 7, 8, 4, 2, 3};
   CHECK(recursive_count(v.begin(), v.end(), 4) == 3);
   CHECK(recursive_count(v.begin(), v.end(), 3) == 2);

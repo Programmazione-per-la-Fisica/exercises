@@ -1,4 +1,4 @@
-#
+#!/bin/bash
 
 g++ -Wall -Wextra ../clm.cpp -o clm
 ./clm > data.csv

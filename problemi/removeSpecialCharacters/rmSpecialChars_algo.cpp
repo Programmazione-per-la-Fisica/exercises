@@ -5,10 +5,10 @@
 #include <vector>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../doctest.h"
+#include "doctest.h"
 
 std::string rmSpecialCharacters(std::string result) {
-  const std::vector<char> specialCharacters = {'.', '!', '@', '#', '$', '%',
+  std::vector<char> const specialCharacters = {'.', '!', '@', '#', '$', '%',
                                                '^', '&', '*', '(', ')'};
 
   result.erase(std::remove_if(result.begin(), result.end(),

@@ -1,16 +1,3 @@
-cmake_minimum_required(VERSION 3.9.1)
-
-# Set the C++ standard
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_EXTENSIONS OFF)
-
-# Set the C++ flags
-set(CMAKE_CXX_FLAGS "-Wall -Wextra -g")
-
-# Set the folder for the executable
-set(EXECUTABLE_OUTPUT_PATH ../)
-
-# Compile
-add_executable(templated_recursive_count.out ./templated_recursive_count.cpp ../../doctest.h)
+add_executable(templated_recursive_count.out templated_recursive_count.cpp)
+target_include_directories(templated_recursive_count.out PRIVATE ${DOCTEST_INCLUDE_DIR})
 add_test(NAME templated_recursive_count.out COMMAND templated_recursive_count.out)

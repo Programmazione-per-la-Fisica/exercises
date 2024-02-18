@@ -2,14 +2,14 @@
 #include <iostream>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../doctest.h"
+#include "doctest.h"
 
 int pow(int base, int exponent) {
   // Make sure that the exponent is non negative
   assert(exponent >= 0);
 
   int result{1};
-  for (int i{}; i < exponent; ++i) {
+  for (int i{0}; i != exponent; ++i) {
     result *= base;
   }
   return result;

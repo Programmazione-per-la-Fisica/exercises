@@ -3,7 +3,7 @@
 #include <vector>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../doctest.h"
+#include "doctest.h"
 
 int findMaxProd_1(std::vector<int> const& vec) {
   // It only makes sense to apply this function if the vector has at least 2 elements

@@ -5,16 +5,16 @@
 #include <string>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include "../../doctest.h"
+#include "doctest.h"
 
 int findExponent(int num) {
-  std::string sequence{std::to_string(num)};
-  int length = sequence.size();
+  auto const sequence = std::to_string(num);
+  auto const length = sequence.size();
 
-  int exponent{};
+  int exponent{0};
   while (true) {
     int n = std::pow(2, exponent);
-    std::string test_string{std::to_string(n)};
+    auto const test_string = std::to_string(n);
 
     // Check digit by digit if the two sequences are identical
     if (test_string.substr(0, length) == sequence) {
