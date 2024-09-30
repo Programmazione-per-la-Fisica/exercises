@@ -5,7 +5,6 @@
 #include "doctest.h"
 
 int gcd(int a, int b) {
-
   while (b != 0) {
     auto t = b;
     b = a % b;
@@ -15,11 +14,7 @@ int gcd(int a, int b) {
   return a;
 }
 
-int lcm(int a, int b) {
-
-  return a / gcd(a, b) * b;
-}
-
+int lcm(int a, int b) { return a / gcd(a, b) * b; }
 
 TEST_CASE("Testing the functions calculating the gcd and lcm") {
   // Test lcm
