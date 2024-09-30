@@ -1,10 +1,15 @@
+
+#include <cassert>
 #include <iostream>
 
 long long int factorial(long long int x) {
   assert(x >= 0);
 
-  // rewrite with ternary operator
-  if (x == 0 || x == 1) ? return 1 : return x * factorial(x - 1);
+  if (x == 0 || x == 1) {
+	return 1
+  } else {
+	return x * factorial(x - 1)
+  }
 }
 
 int main() {
