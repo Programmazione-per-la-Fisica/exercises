@@ -1,8 +1,8 @@
+#include <cassert>
 #include <iostream>
 #include <numeric>
 #include <random>
 #include <vector>
-#include <cassert>
 
 std::vector<double> centralLimitTheorem(int N, int M) {
   assert(N > 0 && M > 0);
