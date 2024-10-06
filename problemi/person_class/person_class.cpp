@@ -17,14 +17,14 @@ class person {
 
 int main() {
   person p("Simone", "Balducci");
-  std::cout << "Name: " << p.name() << ", "
-            << "Surname: " << p.surname() << '\n';
+  std::cout << "Name: " << p.name() << ", " << "Surname: " << p.surname()
+            << '\n';
 
   // We don't need to define the copy constructor; the compiler takes care of if
   person q(p);
-  std::cout << "Name: " << q.name() << ", "
-            << "Surname: " << q.surname() << '\n';
+  std::cout << "Name: " << q.name() << ", " << "Surname: " << q.surname()
+            << '\n';
   q = {"Samuele", "Lanzi"};
-  std::cout << "Name: " << q.name() << ", "
-            << "Surname: " << q.surname() << '\n';
+  std::cout << "Name: " << q.name() << ", " << "Surname: " << q.surname()
+            << '\n';
 }
