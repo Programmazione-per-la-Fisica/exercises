@@ -1,6 +1,6 @@
 #include <algorithm>
-#include <vector>
 #include <cassert>
+#include <vector>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
