@@ -5,25 +5,26 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
-std::vector<int> vectorProduct(const std::vector<int>& v, const std::vector<int>& w) {
-	assert(v.size() == w.size());
-	assert(v.size() == 3);
+std::vector<int> vectorProduct(const std::vector<int>& v,
+                               const std::vector<int>& w) {
+  assert(v.size() == w.size());
+  assert(v.size() == 3);
 
-	std::vector<int> result(3);
-	result[0] = v[1] * w[2] - v[2] * w[1];
-	result[1] = v[2] * w[0] - v[0] * w[2];
-	result[2] = v[0] * w[1] - v[1] * w[0];
+  std::vector<int> result(3);
+  result[0] = v[1] * w[2] - v[2] * w[1];
+  result[1] = v[2] * w[0] - v[0] * w[2];
+  result[2] = v[0] * w[1] - v[1] * w[0];
 
-	return result;
+  return result;
 }
 
 // utility only used for testing
 std::vector<int> negate(const std::vector<int>& vec) {
   std::vector<int> result(vec.size());
-	for (size_t i = 0; i < vec.size(); ++i) {
-		result[i] = -vec[i];
-	}
-	return result;
+  for (size_t i = 0; i < vec.size(); ++i) {
+    result[i] = -vec[i];
+  }
+  return result;
 }
 
 TEST_CASE("Test vector product of 2D vectors") {
