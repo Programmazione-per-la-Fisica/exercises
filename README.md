@@ -22,26 +22,30 @@ La repository è strutturata nel seguente modo:
 Ogni esercizio è contenuto in una directory separata e ha un proprio file README.md che contiene la consegna dell'esercizio e alcune indicazioni sulle soluzioni presenti.
 
 ## Come compilare gli esercizi
+
 ### Usando `g++`
+
 I singoli file `.cpp` delle soluzioni possono essere compilati usando il compilatore `g++`.  
 Il comando da usare e':
+
+```shell
+g++ -Wall -Wextra nome_file.cpp
 ```
-g++ -Wall nome_file.cpp
-```
+
 Volendo si può rinominare l'eseguibile aggiungendo in coda al comando precedente la flag `-o nome_flag`. Di default gli eseguibili vengono chiamati `a.out`.
+
 ### Usando `CMAKE`
-Nella subdirectory di ogni esercizio e' presente un file `CMakeLists.txt`, che permette la compilazione della soluzione mediante CMAKE.  
-Per compilare con CMAKE eseguire il comando:
+
+Nella subdirectory di ogni esercizio e' presente un file `CMakeLists.txt`, che permette la compilazione della soluzione mediante [CMake](https://cmake.org). Per compilare con CMAKE eseguire prima il comando:
+
+```shell
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Debug
 ```
-cmake -B build
-```
-e in seguito eseguire il makefile generato usando
-```
-make -C build
-```
-I due comandi possono essere eseguiti contemporaneamente con:
-```
-cmake -B build && make -C build
+
+e poi:
+
+```shell
+cmake --build build
 ```
 
 ## Come contribuire
@@ -64,3 +68,4 @@ Per mantenere una coerenza nel codice e nello stile, segui le seguenti linee gui
 - In caso di modifiche a soluzioni già presenti, scrivi messaggi di *commit* dettagliati.
 
 Se vuoi contribuire, ma non sai da dove iniziare, controlla la scheda [Issues](https://github.com/Programmazione-per-la-Fisica/exercises/issues) sul GitHub della repository.
+
