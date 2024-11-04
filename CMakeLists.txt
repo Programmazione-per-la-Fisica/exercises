@@ -19,3 +19,4 @@ string(APPEND CMAKE_EXE_LINKER_FLAGS_DEBUG " -fsanitize=address,undefined -fno-o
 set(DOCTEST_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/doctest)
 
 add_subdirectory(problemi)
+add_subdirectory(find_the_bug)
