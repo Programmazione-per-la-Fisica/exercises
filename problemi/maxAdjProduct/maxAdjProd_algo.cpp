@@ -6,7 +6,8 @@
 #include "doctest.h"
 
 int findMaxProd_1(std::vector<int> const& vec) {
-  // It only makes sense to apply this function if the vector has at least 2 elements
+  // It only makes sense to apply this function if the vector has at least 2
+  // elements
   assert(vec.size() >= 2);
 
   long long max{vec[0] * vec[1]};
@@ -27,7 +28,8 @@ int findMaxProd_1(std::vector<int> const& vec) {
 }
 
 int findMaxProd_2(std::vector<int> const& vec) {
-  // It only makes sense to apply this function if the vector has at least 2 elements
+  // It only makes sense to apply this function if the vector has at least 2
+  // elements
   assert(vec.size() >= 2);
 
   long long max{vec[0] * vec[1]};

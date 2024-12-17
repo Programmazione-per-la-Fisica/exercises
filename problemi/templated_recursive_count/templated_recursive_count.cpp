@@ -34,7 +34,6 @@ TEST_CASE("Testing the templated recursive count with char") {
 }
 
 TEST_CASE("Testing the templated recursive count with bool") {
-
   std::vector<bool> w{true,  false, false, true, false, true,
                       false, false, false, true, true,  false};
   CHECK(recursive_count(w.begin(), w.end(), true) == 5);
