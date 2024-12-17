@@ -20,4 +20,4 @@ add_subdirectory(centralLimitTheorem)
 add_subdirectory(minFunctionDistance)
 add_subdirectory(removeSpecialCharacters)
 add_subdirectory(templated_recursive_count)
-
+add_subdirectory(error_propagation)
