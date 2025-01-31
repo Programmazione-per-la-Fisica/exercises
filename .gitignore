@@ -33,3 +33,6 @@
 
 # Cmake build directories
 *build/
+
+# MacOS custom folder attributes
+.DS_Store
