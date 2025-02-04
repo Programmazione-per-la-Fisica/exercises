@@ -47,6 +47,11 @@ Calcola il volume di un cilindro dato il diametro $d$ e l'altezza $h$:
 double calculate_volume(double d, double h);
 ```
 
+> [!TIP]
+> Notate che, [nella soluzione proposta](propagate_errors.cpp#L11), abbiamo scelto di utilizzare la libreria di costanti [`<numbers>`](https://en.cppreference.com/w/cpp/numeric/constants) per ottenere il valore di $\pi$ (`std::numbers::pi`).
+>
+> Per farlo è necessario imporre al compilatore l'uso dello standard _C++20_, ad esempio, specificandolo all'interno del file [`CMakeLists.txt`](CMakeLists.txt#L1).
+
 ### 2. Funzione `propagate_volume_error`
 
 Calcola l'errore sul volume del cilindro:
