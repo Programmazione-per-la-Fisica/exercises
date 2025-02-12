@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-file MD014 -->
 # Esercizio: Propagazione degli errori nella legge dei gas perfetti
 
 ## Descrizione
@@ -50,7 +51,13 @@ double calculate_volume(double d, double h);
 > [!TIP]
 > Notate che, [nella soluzione proposta](propagate_errors.cpp#L11), abbiamo scelto di utilizzare la libreria di costanti [`<numbers>`](https://en.cppreference.com/w/cpp/numeric/constants) per ottenere il valore di $\pi$ (`std::numbers::pi`).
 >
-> Per farlo è necessario imporre al compilatore l'uso dello standard _C++20_, ad esempio, specificandolo all'interno del file [`CMakeLists.txt`](CMakeLists.txt#L1).
+> Per utilizzarla potete imporre al compilatore l'uso dello standard _C++20_, ad esempio, specificandolo all'interno del file [`CMakeLists.txt`](CMakeLists.txt#L1).
+>
+> Alternativamente, potete aggiungere l'opzione `-std=c++20` al comando di compilazione:
+>
+> ```bash
+> $ g++ propagate_errors.cpp -std=c++20 -Wall -Wextra  -o propagate_errors
+> ```
 
 ### 2. Funzione `propagate_volume_error`
 
