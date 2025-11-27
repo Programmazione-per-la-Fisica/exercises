@@ -22,8 +22,8 @@ Si consiglia di:
 - rappresentare le tre operazioni `+`, `*`, `x` tramite una `std::string`.
 
 > [!NOTE]
-> Ai fini dell'esercizio, assumere che l'input sia fornito dall'utente in modo
-> corretto.
+> Ai fini dell'esercizio, cominciare assumendo che l'input sia fornito
+> dall'utente in modo corretto.
 
 > [!TIP]
 > Per iniziare, potete avvalervi dell'istruzione `if` discussa nel capitolo
@@ -33,15 +33,18 @@ In seguito:
 
 1. utilizzare una singola variabile `char` per rappresentare l'operazione;
 2. utilizzare l'istruzione `switch` invece dell'`if`;
-3. passare al calcolo delle operazioni in uno spazio tridimensionale.
+3. passare al calcolo delle operazioni in uno spazio tridimensionale
+4. gestire eventuali errori di input.
 
 ## Versione _intermedia_
 
 Utilizzando `struct` o `class`, implementare un tipo _user defined_ che
 rappresenti vettori in uno spazio reale bidimensionale.
 Inoltre, utilizzando l'overload di operatori, implementare le operazioni di
-_somma vettoriale_ (`+=`, `+`), _differenza vettoriale_ (`-`), _prodotto scalare
-tra vettori_ (`*`) e _prodotto di uno scalare per un vettore_ (`*=`, `*`).
+_somma vettoriale_ (`+=`, `+`), _differenza vettoriale_ (`-`), e _prodotto di
+uno scalare per un vettore_ (`*=`, `*`).
+Infine, aggiungere due funzioni libere `dot` e `cross` che implementino
+rispettivamente il prodotto scalare e quello vettoriale tra vettori.
 Cominciare lo sviluppo partendo dalla preparazione di un adeguato insieme di
 test che verifichi correttezza delle operazioni utilizzando `doctest.h`.
 
