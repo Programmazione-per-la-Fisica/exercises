@@ -6,7 +6,7 @@
 Scrivere, utilizzando i diversi strumenti forniti dal C++, alcuni programmi che
 permettano di eseguire operazioni di calcolo vettoriale.
 In seguito, sono proposti più approcci risolutivi che fanno uso di alcuni tra i
-diversi tra i concetti presentati nel corso.
+diversi concetti presentati nel corso.
 
 ## Versione _base_
 
@@ -17,7 +17,7 @@ _prodotto vettoriale_ (`x`).
 
 Si consiglia di:
 
-- rappresentare i vettori tramite `double` che che corrispondono alle loro
+- rappresentare i vettori tramite `double`, che corrispondono alle loro
   componenti _x_ e _y_;
 - rappresentare le tre operazioni `+`, `*`, `x` tramite una `std::string`.
 
@@ -46,7 +46,7 @@ uno scalare per un vettore_ (`*=`, `*`).
 Infine, aggiungere due funzioni libere `dot` e `cross` che implementino
 rispettivamente il prodotto scalare e quello vettoriale tra vettori.
 Cominciare lo sviluppo partendo dalla preparazione di un adeguato insieme di
-test che verifichi correttezza delle operazioni utilizzando `doctest.h`.
+test che verifichi la correttezza delle operazioni utilizzando `doctest.h`.
 
 > [!TIP]
 > Si consiglia di ridurre il numero di parti del codice in cui i calcoli sono
@@ -59,5 +59,5 @@ avete dovuto adattare per funzionare in tre dimensioni?
 
 > [!TIP]
 > Confrontate il vostro codice con quello di altri studenti che hanno svolto
-> esercizio e discutete pro e contro di ciascuna implementazione coi vostri
+> l'esercizio e discutete pro e contro di ciascuna implementazione coi vostri
 > compagni di corso o coi docenti.

@@ -30,9 +30,9 @@ int main() {
     return EXIT_FAILURE;
   }
 
-  double xr{};
-  double yr{};
-  double zr{};
+  double xr{0.};
+  double yr{0.};
+  double zr{0.};
 
   switch (op) {
     case '+':
