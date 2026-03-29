@@ -1,6 +1,6 @@
 # Carnot cycle efficiency
 
-The Carnot cycle is a theoretical thermodynamic cycle that provides the maximum possible efficiency for a heat engine operating between two temperature reservoirs. It consists of two reversible isothermal processes (one at a high temperature $T_h$ and one at a low temperature $T_l$ and two reversible adiabatic processes. The efficiency $\eta$ of a Carnot cycle is given by the formula:
+The Carnot cycle is a theoretical thermodynamic cycle that provides the maximum possible efficiency for a heat engine operating between two temperature reservoirs. It consists of two reversible isothermal processes (one at a high temperature $T_h$ and one at a low temperature $T_l$) and two reversible adiabatic processes. The efficiency $\eta$ of a Carnot cycle is given by the formula:
 $$ \eta = 1 - \frac{T_l}{T_h} $$
 The above formula can be derived from the more general definition of efficiency for a heat engine:
 $$ \eta = \frac{W}{Q_{abs}} $$
@@ -15,7 +15,7 @@ The program should take as input the following thermodynamic variables:
 - Temperature of the high-temperature reservoir $T_h$;
 - Temperature of the low-temperature reservoir $T_l$;
 - Initial volume of the $T_h$ isothermal expansion $V_A$;
-- Final volume of the $T_h$ isothermal expansion $V_B = 10\cdot V_A$;
+- Final volume of the $T_h$ isothermal expansion (example: $V_B = 10\cdot V_A$);
 
 and compare the efficiency of the cycle computed both using the Carnot formula and using the work and heat calculations.
 
