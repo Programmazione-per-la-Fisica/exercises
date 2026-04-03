@@ -10,10 +10,11 @@ TEST_CASE(
   int molecules{1000};
   int n_interactions{100000};
   double kBT{2.0};
+  double hparam{10.0};
   std::default_random_engine gen;
 
   double initial_energy{molecules * 1.5 * kBT};
-  BoltzmannSimulator sim(molecules, gen, kBT);
+  BoltzmannSimulator sim{molecules, gen, kBT, hparam};
   sim.run(n_interactions);
 
   double final_energy{0.0};

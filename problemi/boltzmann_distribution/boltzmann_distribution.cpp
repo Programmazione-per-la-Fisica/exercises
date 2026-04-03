@@ -2,17 +2,27 @@
 #include <TF1.h>
 #include <TH1D.h>
 
+#include <algorithm>
+#include <cassert>
+#include <cmath>
+#include <cstdlib>
 #include <fstream>
 #include <iomanip>
+#include <iostream>
 #include <sstream>
+#include <string>
+#include <vector>
 
 #include "boltzmann/boltzmann.h"
+
+constexpr double kBT{2.0};
+constexpr double hparam{10.0};
 
 void plot_distribution_ROOT(BoltzmannSimulator const &sim, int molecules,
                             int n_interactions, int current_plot,
                             int total_plots, const int nbins = 20,
-                            const double emin = 0.0, const double emax = 10.0) {
-  static TCanvas *c1 = nullptr;
+                            double emin = 0.0, double emax = 10.0) {
+  static TCanvas *c1{nullptr};
   if (!c1) {
     c1 = new TCanvas("c1", "Boltzmann Simulations", 1200, 800);
     c1->Divide(std::ceil(total_plots / 2.0), 2.0);
@@ -25,7 +35,7 @@ void plot_distribution_ROOT(BoltzmannSimulator const &sim, int molecules,
       ", interactions=" + std::to_string(n_interactions)};
   TH1D *hE = new TH1D(hname.c_str(), htitle.c_str(), nbins, emin, emax);
 
-  for (double e : sim.get_energies()) {
+  for (auto &e : sim.get_energies()) {
     hE->Fill(e);
   }
 
@@ -50,24 +60,27 @@ void plot_distribution_ROOT(BoltzmannSimulator const &sim, int molecules,
 
 void plot_distribution_stdout(BoltzmannSimulator const &sim, int molecules,
                               int n_interactions, std::ostream &out = std::cout,
-                              const int nbins = 20, const double emin = 0.0,
-                              const double emax = 10.0) {
+                              int nbins = 20, double emin = 0.0,
+                              double emax = 10.0) {
+  assert(nbins > 0);
+  assert(emax > emin);
   std::vector<int> counts(nbins, 0);
 
-  for (double e : sim.get_energies()) {
+  for (auto &e : sim.get_energies()) {
     if (e >= emin && e < emax) {
       int bin = static_cast<int>((e - emin) / (emax - emin) * nbins);
-      if (bin >= 0 && bin < nbins) ++counts[bin];
+      assert(bin >= 0 && bin < nbins);
+      ++counts[bin];
     }
   }
-  SimStats st{sim.get_stats()};
+  auto [mean, stddev] = sim.get_stats();
   out << "\n+++ Simulating " << molecules << " molecules +++\n";
   out << "\n=== Interaction count: " << n_interactions << " ===" << '\n';
-  out << "Mean energy:   " << st.mean << '\n';
-  out << "Std deviation: " << st.stddev << '\n';
+  out << "Mean energy:   " << mean << '\n';
+  out << "Std deviation: " << stddev << '\n';
 
   out << "Energy distribution:\n";
-  for (int i = 0; i < nbins; ++i) {
+  for (int i = 0; i != nbins; ++i) {
     double low{emin + i * (emax - emin) / nbins};
     double high{low + (emax - emin) / nbins};
     int barlen = static_cast<int>(
@@ -85,27 +98,28 @@ int main(int argc, char **argv) {
     std::cerr << "Usage: " << argv[0]
               << " molecules interactions[list(comma-separated)]"
               << "Example: " << argv[0] << " 1000 1000,10000,100000" << '\n';
-    return 1;
+    return EXIT_FAILURE;
   }
 
   int molecules{std::stoi(argv[1])};
   std::string s_interaction_list{argv[2]};
   std::vector<int> interaction_list;
-  std::stringstream ss(s_interaction_list);
+  std::stringstream ss{s_interaction_list};
   std::string token;
   while (std::getline(ss, token, ',')) {
     if (!token.empty())
       interaction_list.push_back(
-          std::stoll(token));  // Parse from list of interactions (e.g.
-                               // "1000,10000,100000")
+          std::stoi(token));  // Parse from list of interactions (e.g.
+                              // "1000,10000,100000")
   }
 
-  std::ofstream fout("output.txt");
+  std::ofstream fout{"output.txt"};
   std::default_random_engine gen;
   int pad{1};
 
   for (auto n_interactions : interaction_list) {
-    BoltzmannSimulator sim(molecules, gen);
+    BoltzmannSimulator sim{molecules, gen, kBT,
+                           hparam};  // Create simulator with given parameters
     sim.run(n_interactions);
 
     // Plot using ostream (default stdout, can be redirected to file)
@@ -115,5 +129,5 @@ int main(int argc, char **argv) {
                            interaction_list.size());
     ++pad;
   }
-  return 0;
+  return EXIT_SUCCESS;
 }

@@ -1,7 +1,9 @@
 #include "boltzmann/boltzmann.h"
 
+#include <cassert>
+
 BoltzmannSimulator::BoltzmannSimulator(int molecules,
-                                       std::default_random_engine &gen,
+                                       std::default_random_engine& gen,
                                        double kBT, double hparam)
     : molecules_{molecules},
       deltaU_{kBT / hparam},
@@ -19,20 +21,19 @@ void BoltzmannSimulator::transfer_step() {
 }
 
 void BoltzmannSimulator::run(int n_interactions) {
+  assert(n_interactions >= 0);
   for (int i{0}; i != n_interactions; ++i) {
     transfer_step();
   }
 }
 
 SimStats BoltzmannSimulator::get_stats() const {
-  SimStats s{0., 0.};
   double sum{0.};
   double sum2{0.};
-  for (double e : energies_) {
+  for (auto& e : energies_) {
     sum += e;
     sum2 += e * e;
   }
-  s.mean = sum / molecules_;
-  s.stddev = std::sqrt(sum2 / molecules_ - s.mean * s.mean);
-  return s;
+  return {sum / molecules_, std::sqrt(sum2 / molecules_ -
+                                      (sum / molecules_) * (sum / molecules_))};
 }

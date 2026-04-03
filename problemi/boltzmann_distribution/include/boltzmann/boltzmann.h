@@ -13,14 +13,14 @@ class BoltzmannSimulator {
   double deltaU_;
   std::vector<double> energies_;
 
-  std::default_random_engine gen_;
+  std::default_random_engine& gen_;
   std::uniform_int_distribution<int> dist_;
 
   void transfer_step();
 
  public:
-  BoltzmannSimulator(int molecules, std::default_random_engine& gen,
-                     double kBT = 2.0, double hparam = 10.0);
+  BoltzmannSimulator(int molecules, std::default_random_engine& gen, double kBT,
+                     double hparam);
 
   void run(int n_interactions);
   const std::vector<double>& get_energies() const { return energies_; }
