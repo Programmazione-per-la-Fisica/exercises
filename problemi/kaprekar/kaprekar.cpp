@@ -8,7 +8,6 @@
 #include "doctest.h"
 
 bool verifyKaprekar(int num) {
-
   int steps{0};
 
   while (true) {
