@@ -1,0 +1,2 @@
+# Find The List 
+Given a sequence S of 6 numbers (for example S={14, 23, 51, 55, 68, 76}) and a maximum number of attempts N (for example N=1000000), write a program that generates sequences of 6 random numbers until it generates the sequence S, in this case print S and the number of attempts. If S is not found print "non ho trovato S".
