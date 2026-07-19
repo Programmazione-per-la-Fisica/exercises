@@ -4,18 +4,22 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
-std::vector<int> elimina_uguali_cons(std::vector<int> L) {
-  if (L.size() == 0 || L.size() == 1) {
-    return L;
+std::vector<int> elimina_uguali_cons(const std::vector<int> V) {
+  std::vector<int> V_new;
+  // check if V has no elements
+  if (V.size() == 0) {
+    return V_new;
   }
-  std::vector<int> L_new;
-  L_new.push_back(L[0]);
-  for (size_t i = 0; i < L.size() - 1; ++i) {
-    if (L[i] != L[i + 1]) {
-      L_new.push_back(L[i + 1]);
+
+  // the first element of V must be in V_new
+  V_new.push_back(V[0]);
+
+  for (size_t i = 0; i < V.size() - 1; ++i) {
+    if (V[i] != V[i + 1]) {
+      V_new.push_back(V[i + 1]);
     }
   }
-  return L_new;
+  return V_new;
 }
 
 TEST_CASE("testing the elimina_uguali_cons function") {

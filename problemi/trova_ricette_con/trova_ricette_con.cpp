@@ -11,11 +11,15 @@ std::vector<std::string> trova_ricette_con(
     const std::string& ingrediente,
     const std::map<std::string, std::vector<std::string>>& ricettario) {
   std::vector<std::string> elenco_ricette;
+
   auto it = ricettario.begin();
   while (it != ricettario.end()) {
+    // select the ingredient
     auto ingredienti = it->second;
+    // search for it
     auto pos = std::find(ingredienti.begin(), ingredienti.end(), ingrediente);
     if (pos != ingredienti.end()) {
+      // if found add it in the list
       elenco_ricette.push_back(it->first);
     }
     ++it;

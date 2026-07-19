@@ -17,21 +17,15 @@ int main() {
   std::vector<std::string> V;
   std::string carattere;
 
-  std::cout << "Inserisci valori separati da spazi ('fine' per concludere)"
+  std::cout << "Insert a sequence of space-separated values ('end' to finish)"
             << std::endl;
 
-  while (std::cin >> carattere && carattere != "fine") {
+  // create V
+  while (std::cin >> carattere && carattere != "end") {
     V.push_back(carattere);
   }
 
-  if (V.size() == 0) {
-    std::cout << "V is empty" << std::endl;
-    return 0;
-  }
-  if (V.size() == 1) {
-    std::cout << "V={" << V[0] << "}" << std::endl;
-    return 0;
-  }
+  // clean V
   auto it = V.begin();
   while (it != V.end()) {
     int temp;
@@ -41,9 +35,20 @@ int main() {
       ++it;
     }
   }
+
+  // if V is now empty
+  if (V.size() == 0) {
+    std::cout << "V is empty" << std::endl;
+    return 0;
+  }
+
+  // print V
   std::cout << "\nVettore con solo interi: V={";
   for (size_t i = 0; i < V.size(); i++) {
-    std::cout << V[i] << ", ";
+    std::cout << V[i];
+    if (i != V.size() - 1) {
+      std::cout << ", ";
+    }
   }
   std::cout << "}" << std::endl;
   return 0;

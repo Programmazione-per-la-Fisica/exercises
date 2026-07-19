@@ -2,49 +2,45 @@
 #include <iostream>
 
 int main() {
-  // inizializzo le variabili che mi servono per il calcolo della media
-  int pioggia = 0;
+  double pioggia = 0.0;
   int N = 0;
-  // input utente
   double input_utente;
   while (true) {
-    std::cout
-        << "Inserisci la quantità di pioggia in mm (99999 per terminare):";
+    std::cout << "Enter the rainfall amount in mm (99999 to finish)";
 
-    // controllo che non ci siano caratteri diversi da numeri
+    // check for invalid characters
     if (!(std::cin >> input_utente)) {
-      std::cout << "Valore non valido." << std::endl;
+      std::cout << "Invalid Value." << std::endl;
       std::cin.clear();
       std::cin.ignore(10000, '\n');
       continue;
     }
-    // controllo che sia un intero
+    // check if input is an integer
     if (input_utente != std::floor(input_utente)) {
-      std::cout << "Valore rimosso: sono accettati solo valori interi."
+      std::cout << "Value removed: only integers value are accepted."
                 << std::endl;
       continue;
     }
-    // controllo valori negativi
+    // check if input is positive
     if (input_utente < 0) {
-      std::cout << "Valore negativo ignorato." << std::endl;
+      std::cout << "Negative value ignored." << std::endl;
       continue;
     }
-    // controllo valore terminazione
+    // check for termination value
     if (input_utente == 99999) {
       break;
     }
-    // se tutti i controlli sono passati allora incremento la somma e N
+    // increase
     pioggia += input_utente;
     N += 1;
   }
-  // controllo che N sia diverso da 0
+  // check if N!=0 and calculation of the average
   if (N == 0) {
-    std::cout << "Impossibile calcolare la media, nessun valore valido inserito"
+    std::cout << "Unable to calcolate the average, no valid value entered."
               << std::endl;
   } else {
-    double media = static_cast<double>(pioggia) / N;
-    std::cout << "La media giornaliera di pioggia è:" << media << "mm"
-              << std::endl;
+    double media = pioggia / N;
+    std::cout << "The daily average rainfall is:" << media << "mm" << std::endl;
   }
   return 0;
 }
