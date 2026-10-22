@@ -1,14 +1,16 @@
 #include <cassert>
 #include <iostream>
+#include <numbers>
 
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
 #include "doctest.h"
 
-double calculatePi(int n) {
+double calculate_pi(int n) {
   assert(n > 0);
 
-  auto const dx = 1. / n;
-  double result = 0.;
+  auto const dx{1. / n};
+  double result{0.};
+
   for (int i{0}; i != n; ++i) {
     auto const x = (i + .5) * dx;
     result += 1. / (1 + x * x);
@@ -17,5 +19,5 @@ double calculatePi(int n) {
 }
 
 TEST_CASE("Test that the function estimates the value of pi correctly") {
-  CHECK(doctest::Approx(calculatePi(100)).epsilon(0.0001) == M_PI);
+  CHECK(doctest::Approx(calculate_pi(20)).epsilon(0.0001) == std::numbers::pi);
 }
