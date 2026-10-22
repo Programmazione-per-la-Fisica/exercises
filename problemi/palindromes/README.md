@@ -1,3 +1,4 @@
+<!-- markdownlint-disable-file MD028 -->
 # Serie di numeri palindrome
 
 Scrivere un programma che, dopo aver popolato uno `std::vector` inserendo numeri
@@ -8,6 +9,10 @@ sia [palindroma](it.wikipedia.org/wiki/Palindromo).
 > Ricordate che potete interrompere l'immissione di numeri utilizzando la
 > combinazione di tasti `ctrl` + `D`.
 
+> [!INFO]
+> Assumere che una sequenza costituita da un **solo numero** e la **sequenza
+> vuota** siano **sempre palindrome**.
+
 ## Ulteriori varianti
 
 ### Funzione `is_palindrome`
@@ -15,9 +20,6 @@ sia [palindroma](it.wikipedia.org/wiki/Palindromo).
 Implementate la logica che verifica se uno `std::vector<int>` è palindromo
 all'interno di una funzione `is_palindrome`, che ritorna un `bool` e alla quale
 il vettore viene passato come argomento.
-
-Assumere, in questo caso, che una sequenza costituita da un **solo numero** sia
-**sempre palindroma**, mentre una sequenza vuota **non lo sia**.
 
 ### Parole palindrome
 

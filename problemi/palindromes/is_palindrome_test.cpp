@@ -1,4 +1,3 @@
-#include <cassert>
 #include <string>
 #include <vector>
 
@@ -7,11 +6,7 @@
 #include "doctest.h"
 
 bool is_palindrome(std::vector<int> const& v) {
-  long int n{std::ssize(v)};
-
-  if (n == 0) {
-    return false;
-  }
+  long int const n{std::ssize(v)};
 
   for (long int i{0}; i != n / 2; ++i) {
     if (v[i] != v[n - 1 - i]) {
@@ -23,11 +18,7 @@ bool is_palindrome(std::vector<int> const& v) {
 }
 
 bool is_palindrome(std::string const& s) {
-  long int n{std::ssize(s)};
-
-  if (n == 0) {
-    return false;
-  }
+  long int const n{std::ssize(s)};
 
   for (long int i{0}; i != n / 2; ++i) {
     if (s[i] != s[n - 1 - i]) {
@@ -39,6 +30,9 @@ bool is_palindrome(std::string const& s) {
 }
 
 TEST_CASE("Test vector is_palindrome, successful cases") {
+  std::vector<int> v_zero;
+  CHECK(is_palindrome(v_zero));
+
   std::vector<int> v_one{20};
   CHECK(is_palindrome(v_one));
 
@@ -50,9 +44,6 @@ TEST_CASE("Test vector is_palindrome, successful cases") {
 }
 
 TEST_CASE("Test vector is_palindrome, failures") {
-  std::vector<int> v_zero;
-  CHECK(!is_palindrome(v_zero));
-
   std::vector<int> v_odd{18, 84, 299, 142, 18};
   CHECK(!is_palindrome(v_odd));
 
@@ -61,6 +52,9 @@ TEST_CASE("Test vector is_palindrome, failures") {
 }
 
 TEST_CASE("Test string is_palindrome, successful cases") {
+  std::string s_zero;
+  CHECK(is_palindrome(s_zero));
+
   std::string s_one{'B'};
   CHECK(is_palindrome(s_one));
 
@@ -72,9 +66,6 @@ TEST_CASE("Test string is_palindrome, successful cases") {
 }
 
 TEST_CASE("Test string is_palindrome, failures") {
-  std::string s_zero;
-  CHECK(!is_palindrome(s_zero));
-
   std::string v_odd{"prole"};
   CHECK(!is_palindrome(v_odd));
 
