@@ -9,7 +9,7 @@ sia [palindroma](it.wikipedia.org/wiki/Palindromo).
 > Ricordate che potete interrompere l'immissione di numeri utilizzando la
 > combinazione di tasti `ctrl` + `D`.
 
-> [!INFO]
+> [!NOTE]
 > Assumere che una sequenza costituita da un **solo numero** e la **sequenza
 > vuota** siano **sempre palindrome**.
 
