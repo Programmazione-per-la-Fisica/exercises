@@ -1,6 +1,6 @@
 set(EXECUTABLE_OUTPUT_PATH ${CMAKE_CURRENT_BINARY_DIR})
 
-add_subdirectory(isPrime)
+add_subdirectory(is_prime)
 add_subdirectory(lcm_gcd)
 add_subdirectory(kaprekar)
 add_subdirectory(fibonacci)
